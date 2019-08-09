@@ -1,9 +1,10 @@
 import React from 'react'
-import { NavBar,Toast } from 'antd-mobile'
+import { Toast } from 'antd-mobile'
 import axios from 'axios'
 import { getCurrentCity,setCity } from 'utils'
 import { List,AutoSizer } from 'react-virtualized'
-import './index.scss'
+import styles from './index.module.scss'
+import NavHeader from 'common/NavHeader'
 const CITYS = ['北京', '上海', '深圳', '广州']
 const TITLE_HEIGHT = 36
 const CITY_HEIGHT = 50
@@ -142,11 +143,9 @@ class City extends React.Component{
   }
   render(){
     return(
-      <div className="city">
+      <div className={styles.city}>
         {/* 头部导航区 */}
-        <NavBar mode="dark" icon={<i className="iconfont icon-back" />}>
-          城市选择
-        </NavBar>
+        <NavHeader>城市选择</NavHeader>
         {/* 城市列表 */}
         <AutoSizer>
           {
